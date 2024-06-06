@@ -3,15 +3,10 @@ import React, { useState } from 'react';
 const Projects = () => {
     const [projects, setProjects] = useState([
         {
-            title: 'Project 1',
-            description: 'This is a description for project 1.',
-            link: '#'
-        },
-        {
-            title: 'Project 2',
-            description: 'This is a description for project 2.',
-            link: '#'
-        },
+            title: 'Teszt Projekt',
+            description: 'Ez egy teszt projekt, amit a tanulás során készítettem.',
+            link: 'https://github.com/B3ni15/'
+        }
     ]);
 
     return (

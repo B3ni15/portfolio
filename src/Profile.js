@@ -17,14 +17,14 @@ const Profile = () => {
 
                     <h3 align="center">
                         <samp>&gt; Hey There!, I am
-                            <b><a target="_blank" rel='noopener noreferrer' href="https://devbeni.tech">Balló Benedek</a></b>
+                            <b><a target="_blank" rel='noopener noreferrer' href="https://devbeni.tech"> Balló Benedek</a></b>
                         </samp>
                     </h3>
 
                     <p align="center">
                         <samp>
                             <br />
-                            「 I am a full stack web application developer from <b>Budapest</b> 」
+                            I am a full stack web application developer from <b>Budapest</b>
                             <br />
                             <br />
                         </samp>
