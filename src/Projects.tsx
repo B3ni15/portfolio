@@ -3,9 +3,29 @@ import { useState } from 'react';
 const Projects = () => {
     const [projects] = useState([
         {
-            title: 'Teszt Projekt',
-            description: 'Ez egy teszt projekt, amit a tanulás során készítettem.',
-            link: 'https://github.com/B3ni15/'
+            title: 'Huntools Bot',
+            description: 'Egy Discord bot, amelynek a segítségével a felhasználók különböző hasznos parancsokat használhatnak.',
+            link: 'https://huntools-bot.xyz'
+        },
+        {
+            title: 'DaChats',
+            description: 'Egy beszélgetős weboldal, ahol a felhasználók regisztrálhatnak, és beszélgethetnek egymással.',
+            link: 'https://dachats.online'
+        },
+        {
+            title: 'Balló Benedek',
+            description: 'A saját weboldalam, ahol bemutatom magam és a munkáimat.',
+            link: 'https://devbeni.tech'
+        },
+        {
+            title: 'AI API',
+            description: 'A Huntoolsbot AI API-ja, amelyet a Huntoolsbot használ.',
+            link: 'https://github.com/B3ni15/ai-api-doc'
+        },
+        {
+            title: 'Tank Game Multipalyer',
+            description: 'Egy tankos játék, amelyet többen is játszhatnak. (WEB)',
+            link: '',
         }
     ]);
 
