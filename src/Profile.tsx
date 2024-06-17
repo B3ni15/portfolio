@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Profile = () => {
     return (
         <div className="bg-gray-900 min-h-screen flex flex-col items-center justify-center text-white px-4">
@@ -12,16 +10,16 @@ const Profile = () => {
                 <p className="text-lg text-center">
 
                     <a href="https://komarev.com/ghpvc/?username=B3ni15">
-                        <img align="right" src="https://komarev.com/ghpvc/?username=B3ni15&label=Visitors&color=0e75b6&style=flat" alt="Profile visitor" />
+                        <img src="https://komarev.com/ghpvc/?username=B3ni15&label=Visitors&color=0e75b6&style=flat" alt="Profile visitor" />
                     </a>
 
-                    <h3 align="center">
+                    <h3>
                         <samp>&gt; Hey There!, I am
                             <b><a target="_blank" rel='noopener noreferrer' href="https://devbeni.tech"> Balló Benedek</a></b>
                         </samp>
                     </h3>
 
-                    <p align="center">
+                    <p>
                         <samp>
                             <br />
                             I am a full stack web application developer from <b>Budapest</b>

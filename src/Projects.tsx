@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Projects = () => {
-    const [projects, setProjects] = useState([
+    const [projects] = useState([
         {
             title: 'Teszt Projekt',
             description: 'Ez egy teszt projekt, amit a tanulás során készítettem.',
