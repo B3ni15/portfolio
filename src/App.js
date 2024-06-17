@@ -4,10 +4,12 @@ import Profile from './Profile';
 import About from './About';
 import Projects from './Projects';
 import Footer from './Footer';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
     return (
         <Router>
+            <SpeedInsights />
             <div className="bg-gray-900 min-h-screen text-white flex flex-col">
                 <nav className="p-4 bg-gray-800">
                     <ul className="flex space-x-4 justify-center">
