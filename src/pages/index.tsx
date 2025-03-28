@@ -2,11 +2,10 @@ import { Link } from "@heroui/link";
 //import { Snippet } from "@heroui/snippet";
 //@ts-nocheckimport { Code } from "@heroui/code";
 import { button as buttonStyles } from "@heroui/theme";
-import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 // Import github and instagramm with reacticons
-import { FaGithub, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaDiscord } from "react-icons/fa";
 
 export default function IndexPage() {
   return (
@@ -44,15 +43,21 @@ export default function IndexPage() {
             <div className="flex gap-3 justify-center md:justify-start mt-6">
               <Link
                 isExternal
-                className={buttonStyles({color: "primary", radius: "full", variant: "shadow" })} href={siteConfig.links.docs}>
-                <FaGithub className="h-5 w-5" /> Documentation
+                className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
+                href="#">
+                <FaGithub className="h-5 w-5" /> Github
               </Link>
               <Link
                 isExternal
-                className={buttonStyles({ variant: "bordered", radius: "full" })}
-                href={siteConfig.links.github}
-              >
-                GitHub
+                className={buttonStyles({ variant: "shadow", radius: "full", color: "primary" })}
+                href="#">
+                <FaInstagram className="h-5 w-5" /> Instagram
+              </Link>
+              <Link
+                isExternal
+                className={buttonStyles({ variant: "shadow", radius: "full", color: "primary" })}
+                href="#">
+                <FaDiscord className="h-5 w-5" /> Discord
               </Link>
             </div>
           </div>
