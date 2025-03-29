@@ -5,6 +5,16 @@ import DefaultLayout from "@/layouts/default";
 import { FaGithub, FaInstagram, FaDiscord } from "react-icons/fa";
 
 export default function IndexPage() {
+  const calculateAge = () => {
+    const birthDate = new Date("2008-08-12");
+    const currentDate = new Date();
+    
+    const age = currentDate.getTime() - birthDate.getTime();
+    const ageDate = new Date(age);
+
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -26,11 +36,11 @@ export default function IndexPage() {
           </div>
           <div className="text-center md:text-left">
             <div className="inline-block max-w-lg">
-              <span className={title()}>Make&nbsp;</span>
-              <span className={title({ color: "blue" })}>beautiful&nbsp;</span>
+              <span className={title()}>Hi, I'm&nbsp;</span>
+              <span className={title({ color: "blue" })}>Benedek Balló&nbsp;</span>
               <br />
               <span className={title()}>
-                websites regardless of your design experience.
+                a {calculateAge()}-year-old full stack developer from Hungary.
               </span>
               <div className={subtitle({ class: "mt-4" })}>
                 Beautiful, fast and modern React UI library.
