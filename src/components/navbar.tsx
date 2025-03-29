@@ -51,14 +51,14 @@ export const Navbar = () => {
     <nav className="fixed top-2 left-0 right-0 z-50 flex justify-center px-4">
       <div className="relative flex items-center justify-center py-2 px-6 bg-[#0F1015]/90 backdrop-blur-md shadow-lg rounded-full border border-gray-700/50 w-full max-w-xl">
         <div ref={tabsRef} className="flex items-center justify-center gap-4 relative h-10">
-          <div className="absolute bottom- left-0 h-10 bg-gray-700/50 rounded-full transition-all duration-300 ease-in-out" style={indicatorStyle}/>
+          <div className="absolute bottom-0 left-0 h-10 bg-gray-700/50 rounded-full transition-all duration-300 ease-in-out" style={indicatorStyle}/>
 
           <button
             data-tab="home"
             onClick={() => handleTabClick("home")}
             className={`relative z-10 flex items-center justify-center gap-2 px-4 py-2 text-lg font-medium ${activeTab === "home" ? "text-white" : "text-gray-400 hover:text-gray-300"} transition-colors`}>
             <FaHome className="text-base" />
-            <span>Home</span>
+            <span className="hidden sm:inline">Home</span>
           </button>
 
           <button
@@ -66,7 +66,7 @@ export const Navbar = () => {
             onClick={() => handleTabClick("about")}
             className={`relative z-10 flex items-center justify-center gap-2 px-4 py-2 text-lg font-medium ${activeTab === "about" ? "text-white" : "text-gray-400 hover:text-gray-300"} transition-colors`}>
             <FaClipboardList className="text-base" />
-            <span>About</span>
+            <span className="hidden sm:inline">About</span>
           </button>
 
           <button
@@ -74,7 +74,7 @@ export const Navbar = () => {
             onClick={() => handleTabClick("projects")}
             className={`relative z-10 flex items-center justify-center gap-2 px-4 py-2 text-lg font-medium ${activeTab === "projects" ? "text-white" : "text-gray-400 hover:text-gray-300"} transition-colors`}>
             <AiFillProject className="text-base" />
-            <span>Projects</span>
+            <span className="hidden sm:inline">Projects</span>
           </button>
         </div>
 
