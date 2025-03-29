@@ -1,19 +1,20 @@
 import { Link } from "@heroui/link";
 import { button as buttonStyles } from "@heroui/theme";
-import { title, subtitle } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import { FaGithub, FaInstagram, FaDiscord } from "react-icons/fa";
+// import { Snippet } from "@heroui/snippet";
+// import { Code } from "@heroui/code";
 
 export default function IndexPage() {
-  const calculateAge = () => {
-    const birthDate = new Date("2008-08-12");
-    const currentDate = new Date();
-    
-    const age = currentDate.getTime() - birthDate.getTime();
-    const ageDate = new Date(age);
+  // const calculateAge = () => {
+  //   const birthDate = new Date("2008-08-12");
+  //   const currentDate = new Date();
 
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  }
+  //   const age = currentDate.getTime() - birthDate.getTime();
+  //   const ageDate = new Date(age);
+
+  //   return Math.abs(ageDate.getUTCFullYear() - 1970);
+  // }
 
   return (
     <DefaultLayout>
@@ -23,7 +24,7 @@ export default function IndexPage() {
             <img
               src="/Ellipse.svg"
               alt="Decorative background"
-              className="absolute w-full h-full"
+              className="absolute w-full h-full opacity-10"
             />
             <div className="relative w-52 h-52 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <img
@@ -34,16 +35,14 @@ export default function IndexPage() {
               <img src="/hi.png" alt="" className="absolute -bottom-7 -right-7 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 z-10 object-cover" />
             </div>
           </div>
+
           <div className="text-center md:text-left">
             <div className="inline-block max-w-lg">
-              <span className={title()}>Hi, I'm&nbsp;</span>
-              <span className={title({ color: "blue" })}>Benedek Balló&nbsp;</span>
-              <br />
-              <span className={title()}>
-                a {calculateAge()}-year-old full stack developer from Hungary.
-              </span>
-              <div className={subtitle({ class: "mt-4" })}>
-                Beautiful, fast and modern React UI library.
+              <p className="tracking-tight inline text-4xl">Üdv, én <span className="font-semibold">Balló Benedek</span> vagyok.</p>
+              <p className="tracking-tight text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-[#5E78FF] to-[#2C318E]">Fullstack Developer</p>
+
+              <div className="md:w-1/2 my-2 text-lg lg:text-xl block max-w-full mt-4 !w-full">
+                Sziasztok! Devbenike vagyok most ezért írok mivel tudja a faszom mi a gecimet írjak ide egyenlőre csak ezt a faszágot fogom ha nem zavar senkit. Igazából le is szarom szóval kaka fejek vagytok.
               </div>
             </div>
 

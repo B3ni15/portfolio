@@ -50,7 +50,7 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-2 left-0 right-0 z-50 flex justify-center px-4">
       <div className="relative flex items-center justify-center py-2 px-6 bg-[#0F1015]/90 backdrop-blur-md shadow-lg rounded-full border border-gray-700/50 w-full max-w-xl">
-        <div ref={tabsRef} className="flex items-center justify-center gap-4 relative h-12"> {/* h-12 hozzáadva */}
+        <div ref={tabsRef} className="flex items-center justify-center gap-4 relative h-10">
           <div className="absolute bottom- left-0 h-10 bg-gray-700/50 rounded-full transition-all duration-300 ease-in-out" style={indicatorStyle}/>
 
           <button
