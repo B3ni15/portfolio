@@ -4,18 +4,9 @@ import DefaultLayout from "@/layouts/default";
 import { FaGithub, FaInstagram, FaDiscord } from "react-icons/fa";
 // import { Snippet } from "@heroui/snippet";
 // import { Code } from "@heroui/code";
+// import GitHubCalendar from 'react-github-calendar'
 
-export default function IndexPage() {
-  // const calculateAge = () => {
-  //   const birthDate = new Date("2008-08-12");
-  //   const currentDate = new Date();
-
-  //   const age = currentDate.getTime() - birthDate.getTime();
-  //   const ageDate = new Date(age);
-
-  //   return Math.abs(ageDate.getUTCFullYear() - 1970);
-  // }
-
+export default function IndexPage() {  
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -69,11 +60,10 @@ export default function IndexPage() {
           </div>
         </div>
 
-        {/* <div className="mt-8">
+        {/* <div className="mt-12">
           <Snippet hideCopyButton hideSymbol variant="bordered">
             <span>
-              Get started by editing{" "}
-              <Code color="primary">pages/index.tsx</Code>
+              <GitHubCalendar username="b3ni15" />
             </span>
           </Snippet>
         </div> */}
