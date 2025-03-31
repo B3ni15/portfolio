@@ -1,12 +1,12 @@
 import { Link } from "@heroui/link";
 import { button as buttonStyles } from "@heroui/theme";
 import DefaultLayout from "@/layouts/default";
-import { FaGithub, FaInstagram, FaDiscord } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaDiscord, FaTwitter } from "react-icons/fa";
 // import { Snippet } from "@heroui/snippet";
 // import { Code } from "@heroui/code";
 // import GitHubCalendar from 'react-github-calendar'
 
-export default function IndexPage() {  
+export default function IndexPage() {
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -41,20 +41,26 @@ export default function IndexPage() {
               <Link
                 isExternal
                 className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
-                href="#">
+                href="https://github.com/B3ni15">
                 <FaGithub className="h-5 w-5" /> Github
               </Link>
               <Link
                 isExternal
                 className={buttonStyles({ variant: "shadow", radius: "full", color: "primary" })}
-                href="#">
+                href="https://www.instagram.com/b3ni.ballo/">
                 <FaInstagram className="h-5 w-5" /> Instagram
               </Link>
               <Link
                 isExternal
                 className={buttonStyles({ variant: "shadow", radius: "full", color: "primary" })}
-                href="#">
+                href="https://discord.com/users/801162422580019220">
                 <FaDiscord className="h-5 w-5" /> Discord
+              </Link>
+              <Link
+                isExternal
+                className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
+                href="https://x.com/b3ni_15">
+                <FaTwitter className="h-5 w-5" /> Twitter
               </Link>
             </div>
           </div>

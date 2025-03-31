@@ -1,6 +1,9 @@
 import { title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import { Card, CardBody, CardHeader, Image } from "@heroui/react";
+import React from "react";
+import { button as buttonStyles } from "@heroui/theme";
+import { Link } from "@heroui/link";
 
 interface CardComponentProps {
   name: string;
@@ -23,6 +26,13 @@ const CardComponent: React.FC<CardComponentProps> = ({ name, description, link, 
           src={img}
           width={270}
         />
+        <br />
+        <Link
+          isExternal
+          className={buttonStyles({ variant: "shadow", radius: "full", color: "primary" })}
+          href={link}>
+          Link
+        </Link>
       </CardBody>
     </Card>
   );
@@ -31,17 +41,23 @@ const CardComponent: React.FC<CardComponentProps> = ({ name, description, link, 
 export default function ProjectPage() {
   const Projects = [
     {
-      name: "Project 1",
-      description: "Description of project 1",
-      link: "https://example.com/project1",
-      image: "https://heroui.com/images/hero-card-complete.jpeg",
+      name: "HunTools Bot",
+      description: "A multifunctional Discord bot with several features.",
+      link: "https://huntools-bot.xyz",
+      image: "/huntools.webp",
     },
     {
-      name: "Project 2",
-      description: "Description of project 2",
-      link: "https://example.com/project2",
-      image: "https://heroui.com/images/hero-card-complete.jpeg",
+      name: "DaChats",
+      description: "A Fun Social Media Platform to chat with your friends.",
+      link: "https://dachats.online",
+      image: "https://dagames.online/navLogo.svg",
     },
+    // {
+    //   name: "Lirium Bot",
+    //   description: "Customizable. Fast. New.",
+    //   link: "https://lirium.cc/",
+    //   image: "https://lirium.cc/assets/lirium.svg",
+    // }
   ];
 
   const ProjectList = Projects.map((project, index) => (
