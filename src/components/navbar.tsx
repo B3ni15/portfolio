@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ThemeSwitch } from "@/components/theme-switch";
 import { FaHome, FaClipboardList } from "react-icons/fa";
 import { AiFillProject } from "react-icons/ai";
 
@@ -77,8 +76,6 @@ export const Navbar = () => {
             <span className="hidden sm:inline">Projects</span>
           </button>
         </div>
-
-        <ThemeSwitch/>
       </div>
     </nav>
   );

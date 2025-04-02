@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/navbar";
+// import { Navbar } from "@/components/navbar";
 
 export default function DefaultLayout({
   children,
@@ -12,9 +12,9 @@ export default function DefaultLayout({
         <div className="absolute bottom-[-300px] right-[-300px] w-[700px] h-[700px] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#5E78FF]/30 to-transparent blur-3xl" />
       </div>
 
-      <div className="fixed top-0 w-full z-50">
+      {/* <div className="fixed top-0 w-full z-50">
         <Navbar />
-      </div>
+      </div> */}
 
       <main className="relative z-10 pt-24 pb-16 min-h-[calc(100vh-6rem)]">
         <div className="container mx-auto max-w-7xl px-6">

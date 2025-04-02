@@ -27,7 +27,7 @@ export default function IndexPage() {
             </div>
           </div>
 
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left text-white">
             <div className="inline-block max-w-lg">
               <p className="tracking-tight inline text-4xl">Üdv, én <span className="font-semibold">Balló Benedek</span> vagyok.</p>
               <p className="tracking-tight text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-b from-[#5E78FF] to-[#2C318E]">Fullstack Developer</p>
