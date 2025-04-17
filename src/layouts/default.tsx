@@ -22,7 +22,7 @@ export default function DefaultLayout({
         </div>
       </main>
 
-      <footer className="relative z-10 mt-8 mx-auto max-w-7xl px-4 sm:px-6 py-4 text-center text-default-400 text-sm sm:text-base bg-[#0F1015]">
+      <footer className="relative z-10 mt-8 mx-auto max-w-7xl px-4 sm:px-6 py-4 text-center text-default-400 text-sm sm:text-base">
         © {new Date().getFullYear()} Balló Benedek. All rights reserved.
       </footer>
     </div>
