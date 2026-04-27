@@ -14,7 +14,7 @@ export default function IndexPage() {
             />
             <div className="absolute w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <img
-                src="/pfp.png"
+                src="https://cdn.discordapp.com/avatars/801162422580019220/0d3b59f456803cfee66f15fa3628d01a.webp?size=160"
                 alt="Profile picture"
                 className="w-full h-full z-10 object-cover rounded-full"
               />
