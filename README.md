@@ -1,49 +1,41 @@
-# Vite & HeroUI Template
+# devbeni.lol
 
-This is a template for creating applications using Vite and HeroUI (v2).
+Balló Benedek (devbeni) személyes portfólió oldala.
 
-[Try it on CodeSandbox](https://githubbox.com/frontio-ai/vite-template)
+## Technológiák
 
-## Technologies Used
+- [Vite](https://vitejs.dev) + [React](https://react.dev) + TypeScript
+- [Tailwind CSS](https://tailwindcss.com) & [HeroUI](https://heroui.com)
+- [Framer Motion](https://www.framer.com/motion) – az animációkhoz
 
-- [Vite](https://vitejs.dev/guide/)
-- [HeroUI](https://heroui.com)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org)
-- [Framer Motion](https://www.framer.com/motion)
+## Felépítés
 
-## How to Use
-
-To clone the project, run the following command:
-
-```bash
-git clone https://github.com/frontio-ai/vite-template.git
+```
+src/
+  components/   # Hero, About, Projects, Contact, Navbar, Background, animációs helperek
+  config/site.ts # profil, elérhetőségek, projektek, stack – itt szerkeszthető a tartalom
+  layouts/      # oldalkeret (háttér, navbar, footer)
+  pages/        # a főoldal, ami összefűzi a szekciókat
 ```
 
-### Install dependencies
+A megjelenített tartalom (bemutatkozás, projektek, elérhetőségek, számok) egy
+helyen, a `src/config/site.ts` fájlban van – elég ott átírni.
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+## Fejlesztés
 
 ```bash
 npm install
+npm run dev      # fejlesztői szerver
+npm run build    # production build a dist/ mappába
+npm run preview  # a build kipróbálása
 ```
 
-### Run the development server
+## Animációk
 
-```bash
-npm run dev
-```
+Minden mozgás `prefers-reduced-motion`-tudatos: ha a látogató kevesebb animációt
+kér az operációs rendszerében, a parallax, a kurzort követő fény és a lebegő
+elemek kikapcsolnak.
 
-### Setup pnpm (optional)
+## Licenc
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/frontio-ai/vite-template/blob/main/LICENSE).
+[MIT](LICENSE)

@@ -2,33 +2,138 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Meglévő stílusok... */
+@layer base {
+  :root {
+    color-scheme: dark;
+    --page: #08090c;
+  }
 
-/* iOS Safari specifikus javítások */
-html, body {
-  min-height: 100%;
-  height: 100%;
-  background-color: #0F1015;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  width: 100%;
+  html {
+    scroll-behavior: smooth;
+    /* a fixed navbar alá ne csússzon be a szekció címe */
+    scroll-padding-top: 6.5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  html,
+  body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--page);
+    color: #f5f6f8;
+  }
+
+  body {
+    font-feature-settings: "cv02", "cv03", "cv04", "ss01";
+  }
+
+  ::selection {
+    background: rgba(94, 120, 255, 0.35);
+    color: #fff;
+  }
+
+  /* Diszkrét, Apple-szerű scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border: 3px solid transparent;
+    background-clip: content-box;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.22);
+    background-clip: content-box;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgba(94, 120, 255, 0.9);
+    outline-offset: 3px;
+    border-radius: 12px;
+  }
 }
 
-#__next {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: #0F1015;
+@layer components {
+  /* Üveg felület – a kártyák és a dock alapja */
+  .glass {
+    @apply border border-white/10 bg-white/[0.045] backdrop-blur-2xl;
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+      0 20px 60px -30px rgba(0, 0, 0, 0.9);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0.72) 100%
+    );
+  }
+
+  .accent-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(120deg, #8fa4ff 0%, #5e78ff 45%, #8a5cff 100%);
+  }
+
+  .section-title {
+    @apply text-3xl font-semibold tracking-tightest text-white sm:text-4xl md:text-5xl;
+  }
 }
 
-/* Kiküszöböli a Safari mobil böngészők alján megjelenő fehér csíkot */
+@layer utilities {
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 12%,
+      black 88%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 12%,
+      black 88%,
+      transparent
+    );
+  }
+
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+}
+
+/* iOS Safari: a 100vh miatti fehér csík elkerülése */
 @supports (-webkit-touch-callout: none) {
   .min-h-screen {
     min-height: -webkit-fill-available;
   }
-  
   html {
     height: -webkit-fill-available;
+  }
+}
+
+/* Aki kevesebb mozgást kér, az kevesebbet is kapjon */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

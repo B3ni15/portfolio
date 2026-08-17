@@ -1,82 +1,92 @@
-import { useState, useEffect, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { FaHome, FaClipboardList } from "react-icons/fa";
-import { AiFillProject } from "react-icons/ai";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 
-export const Navbar = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const tabsRef = useRef<HTMLDivElement>(null);
-  const [activeTab, setActiveTab] = useState("home");
-  const [indicatorStyle, setIndicatorStyle] = useState({ width: "0px", transform: "translateX(0px)" });
+import { EASE_APPLE } from "./motion";
 
+const sections = [
+  { id: "hero", label: "Kezdés" },
+  { id: "about", label: "Rólam" },
+  { id: "projects", label: "Projektek" },
+  { id: "contact", label: "Kapcsolat" },
+] as const;
+
+export function Navbar() {
+  const [active, setActive] = useState<string>("hero");
+  const [scrolled, setScrolled] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 24));
+
+  // Scroll-spy: a viewport felső harmadában lévő szekció az aktív.
   useEffect(() => {
-    const path = location.pathname;
-    if (path === "/about") setActiveTab("about");
-    else if (path === "/projects") setActiveTab("projects");
-    else setActiveTab("home");
-  }, [location.pathname]);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-  useEffect(() => {
-    const updateIndicatorPosition = () => {
-      const activeElement = document.querySelector(`[data-tab="${activeTab}"]`);
-      if (activeElement && tabsRef.current) {
-        const { width, left } = activeElement.getBoundingClientRect();
-        const tabsLeft = tabsRef.current.getBoundingClientRect().left;
-        const tabsRight = tabsRef.current.getBoundingClientRect().right;
-        const tabsWidth = tabsRight - tabsLeft;
-        const indicatorWidth = Math.min(width, tabsWidth / 3);
-        const indicatorLeft = left - tabsLeft + (width - indicatorWidth) / 2;
-        setIndicatorStyle({
-          width: `${indicatorWidth}px`,
-          transform: `translateX(${indicatorLeft}px)`,
-        });
-      }
-    };
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 1] },
+    );
 
-    updateIndicatorPosition();
-    window.addEventListener("resize", updateIndicatorPosition);
-    return () => window.removeEventListener("resize", updateIndicatorPosition);
-  }, [activeTab]);
+    sections.forEach(({ id }) => {
+      const el = document.getElementById(id);
 
-  const handleTabClick = (tab: string) => {
-    setActiveTab(tab);
-    if (tab === "about") navigate("/about");
-    else if (tab === "projects") navigate("/projects");
-    else navigate("/");
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const go = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <nav className="fixed top-2 left-0 right-0 z-50 flex justify-center px-4">
-      <div className="relative flex items-center justify-center py-2 px-6 bg-[#0F1015]/90 backdrop-blur-md shadow-lg rounded-full border border-gray-700/50 w-full max-w-xl">
-        <div ref={tabsRef} className="flex items-center justify-center gap-4 relative h-10">
-          <div className="absolute bottom-0 left-0 h-10 bg-gray-700/50 rounded-full transition-all duration-300 ease-in-out" style={indicatorStyle}/>
+    <motion.header
+      animate={{ y: 0, opacity: 1 }}
+      className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4 sm:pt-5"
+      initial={{ y: -80, opacity: 0 }}
+      transition={{ duration: 1, ease: EASE_APPLE, delay: 0.15 }}
+    >
+      <nav
+        aria-label="Fő navigáció"
+        className={`glass flex items-center gap-1 rounded-full p-1.5 transition-all duration-500 ease-apple-out ${
+          scrolled ? "bg-white/[0.07] shadow-2xl" : "shadow-none"
+        }`}
+      >
+        {sections.map(({ id, label }) => {
+          const isActive = active === id;
 
-          <button
-            data-tab="home"
-            onClick={() => handleTabClick("home")}
-            className={`relative z-10 flex items-center justify-center gap-2 px-4 py-2 text-lg font-medium ${activeTab === "home" ? "text-white" : "text-gray-400 hover:text-gray-300"} transition-colors`}>
-            <FaHome className="text-base" />
-            <span className="hidden sm:inline">Home</span>
-          </button>
-
-          <button
-            data-tab="about"
-            onClick={() => handleTabClick("about")}
-            className={`relative z-10 flex items-center justify-center gap-2 px-4 py-2 text-lg font-medium ${activeTab === "about" ? "text-white" : "text-gray-400 hover:text-gray-300"} transition-colors`}>
-            <FaClipboardList className="text-base" />
-            <span className="hidden sm:inline">About</span>
-          </button>
-
-          <button
-            data-tab="projects"
-            onClick={() => handleTabClick("projects")}
-            className={`relative z-10 flex items-center justify-center gap-2 px-4 py-2 text-lg font-medium ${activeTab === "projects" ? "text-white" : "text-gray-400 hover:text-gray-300"} transition-colors`}>
-            <AiFillProject className="text-base" />
-            <span className="hidden sm:inline">Projects</span>
-          </button>
-        </div>
-      </div>
-    </nav>
+          return (
+            <button
+              key={id}
+              aria-current={isActive ? "true" : undefined}
+              className="relative rounded-full px-3.5 py-2 text-[13px] font-medium tracking-tight transition-colors duration-300 sm:px-5 sm:text-sm"
+              type="button"
+              onClick={() => go(id)}
+            >
+              <AnimatePresence>
+                {isActive && (
+                  <motion.span
+                    className="absolute inset-0 rounded-full bg-white/[0.12] ring-1 ring-inset ring-white/15"
+                    layoutId="nav-pill"
+                    transition={{ type: "spring", stiffness: 320, damping: 32 }}
+                  />
+                )}
+              </AnimatePresence>
+              <span
+                className={`relative z-10 ${isActive ? "text-white" : "text-white/55 hover:text-white/85"}`}
+              >
+                {label}
+              </span>
+            </button>
+          );
+        })}
+      </nav>
+    </motion.header>
   );
-};
+}
+
+export default Navbar;

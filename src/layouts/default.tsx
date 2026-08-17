@@ -1,4 +1,6 @@
-// import { Navbar } from "@/components/navbar";
+import { Background } from "@/components/background";
+import { Navbar } from "@/components/navbar";
+import { site } from "@/config/site";
 
 export default function DefaultLayout({
   children,
@@ -6,24 +8,30 @@ export default function DefaultLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative bg-[#0F1015] min-h-screen flex flex-col overflow-x-hidden w-full">
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[-150px] sm:top-[-300px] left-[-150px] sm:left-[-300px] w-[350px] sm:w-[700px] h-[350px] sm:h-[700px] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#5E78FF]/30 to-transparent blur-3xl" />
-        <div className="absolute bottom-[-150px] sm:bottom-[-300px] right-[-150px] sm:right-[-300px] w-[350px] sm:w-[700px] h-[350px] sm:h-[700px] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#5E78FF]/30 to-transparent blur-3xl" />
-      </div>
+    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+      <Background />
 
-      {/* <div className="fixed top-0 w-full z-50">
-        <Navbar />
-      </div> */}
+      {/* Finom fátyol: a felfelé úszó tartalom a navbar alatt tűnik el */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-x-0 top-0 z-40 h-32 bg-gradient-to-b from-ink-950 via-ink-950/85 to-transparent"
+      />
 
-      <main className="relative z-10 pt-16 sm:pt-24 pb-16 flex-grow">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6">
-          {children}
-        </div>
+      <Navbar />
+
+      <main className="relative z-10 flex-grow">
+        <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">{children}</div>
       </main>
 
-      <footer className="relative z-10 mt-8 mx-auto max-w-7xl px-4 sm:px-6 py-4 text-center text-default-400 text-sm sm:text-base">
-        © {new Date().getFullYear()} Balló Benedek. All rights reserved.
+      <footer className="relative z-10 border-t border-white/[0.06]">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 px-5 py-8 text-sm text-white/35 sm:flex-row sm:px-8">
+          <span>
+            © {new Date().getFullYear()} {site.name}
+          </span>
+          <span className="text-white/25">
+            React · Tailwind · Framer Motion — Budapesten készült
+          </span>
+        </div>
       </footer>
     </div>
   );
