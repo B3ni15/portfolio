@@ -67,6 +67,12 @@
     "onlyBuiltDependencies": [
       "@heroui/shared-utils",
       "esbuild"
-    ]
+    ],
+    "overrides": {
+      "@react-types/shared": "3.32.0"
+    }
+  },
+  "overrides": {
+    "@react-types/shared": "3.32.0"
   }
 }
