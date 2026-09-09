@@ -1,13 +1,10 @@
 import type { Social } from "@/config/site";
 import type { IconType } from "react-icons";
-
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiArrowUpRight, FiCheck, FiCopy, FiMail } from "react-icons/fi";
 import { FaDiscord, FaGithub, FaInstagram, FaXTwitter } from "react-icons/fa6";
-
 import { socials } from "@/config/site";
-
 import { Reveal, StaggerGroup, staggerChild } from "./motion";
 import { SectionLabel } from "./about";
 import { Magnetic } from "./magnetic";
@@ -51,7 +48,7 @@ export function Contact() {
           <Magnetic>
             <a
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-ink-950 transition-transform duration-500 ease-apple-out hover:scale-[1.03] active:scale-[0.98]"
-              href="mailto:xbenitmx2020@gmail.com"
+              href="mailto:contact@devbeni.lol"
             >
               <FiMail className="h-4 w-4" />
               Email küldése
