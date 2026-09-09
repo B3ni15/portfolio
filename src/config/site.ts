@@ -21,9 +21,9 @@ export const socials: Social[] = [
   {
     key: "email",
     label: "Email",
-    value: "xbenitmx2020@gmail.com",
-    href: "mailto:xbenitmx2020@gmail.com",
-    copy: "xbenitmx2020@gmail.com",
+    value: "contact@devbeni.lol",
+    href: "mailto:contact@devbeni.lol,
+    copy: "contact@devbeni.lol",
   },
   {
     key: "discord",
