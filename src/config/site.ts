@@ -22,7 +22,7 @@ export const socials: Social[] = [
     key: "email",
     label: "Email",
     value: "contact@devbeni.lol",
-    href: "mailto:contact@devbeni.lol,
+    href: "mailto:contact@devbeni.lol",
     copy: "contact@devbeni.lol",
   },
   {
